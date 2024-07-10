@@ -1,0 +1,109 @@
+@import url('copy.css');
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 100px auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 650px; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles for modal buttons */
+.modal-btn {
+    background-color:rgb(221, 221, 250);
+    color: black;
+    border: 1px solid black;
+    padding: 10px 20px;
+    margin: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
+.modal-btn:hover, .modal-btn:focus{
+    background-color:rgb(138, 138, 220);
+    border: none;
+}
+
+/* Styles for form elements in the modal */
+.modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.modal-content input[type="text"],
+.modal-content select {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-content button.apply-btn, button.delete-btn {
+    display: block;
+    width: 100px;
+    margin: 20px auto 0;
+    background-color: rgb(221, 221, 250);
+    color: black;
+    border: 1px solid black;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+.modal-content button.apply-btn:hover, .modal-content button.apply-btn:focus,
+button.delete-btn:hover, button.delete-btn:focus{
+    background-color:rgb(138, 138, 220);
+    border: none;
+}
+
+#drop-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+#drop-area p {
+    margin: 10px 0;
+}
+
+/* Additional styles for modal layout */
+#modal-body {
+    text-align: center;
+}
+
+#new-industry-form, #delete-industry-form {
+    text-align: left;
+    margin-top: 20px;
+    color: black;
+}

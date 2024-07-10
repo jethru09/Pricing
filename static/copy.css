@@ -1,0 +1,302 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: rgb(35, 35, 44);
+    background-size: contain;
+    height: 100%;
+    color: white;
+    margin: 0;
+}
+
+nav {
+    padding-top: 10px;
+    background: rgb(0, 0, 41);
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    opacity: 0.9;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar form {
+    flex-grow: 1;
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.navbar input[type="text"] {
+    width: 200px;
+    padding: 5px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font: 500;
+    box-sizing: border-box;
+}
+
+.navbar .nav-icon {
+    height: 40px;
+    cursor: pointer;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.navbar .icon {
+    height: 40px;
+    cursor: pointer;
+}
+
+.foot {
+    color: white;
+    background: rgb(0, 0, 41);
+    margin-top: auto;
+    text-align: right;
+    padding: 10px 20px;
+}
+
+.main {
+    height: auto;
+}
+
+.box1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(35, 35, 44);
+    border-radius: 8px;
+}
+
+.box1 h2 {
+    margin: 0;
+    padding-left: 30px;
+    margin-right: auto;
+    color: white;
+}
+
+.type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+}
+
+.icon {
+    height: 40px;
+    margin: 0 10px;
+}
+
+.configurator-btn, .analyzer-btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    width: 150px;
+    background-color: rgb(14, 14, 16);
+    color: #969696;
+    border: 1px solid rgb(37, 37, 137);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.configurator-btn:hover, .configurator-btn:focus,
+.analyzer-btn:hover, .analyzer-btn:focus {
+    background-color: rgb(35, 35, 44);
+    color: white;
+    border: 1px solid #ccc;
+}
+
+.box2 {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add gap between elements */
+    padding: 0;
+    padding-left: 30px;
+    background-color: rgb(35, 35, 44);
+    border-radius: 8px;
+    height: 50px;
+}
+
+.box2 h3 {
+    margin: 0;
+    padding: 2px;
+    padding-left: 10px;
+    background-color: rgb(69, 69, 84);
+    border-radius: 4px;
+    color: white; /* Change text color to white */
+    width: 220px;
+}
+
+.box2 select {
+    background-color: rgb(82, 82, 96);
+    color: white;
+    width: 150px;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.box2 .add-btn {
+    background-color: white;
+    color: rgb(35, 35, 44);
+    height: 30px;
+    border-radius: 15px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* Remove margin-right: auto */
+}
+
+.grid-container {
+    background-color: rgb(35, 35, 44);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    grid-gap: 10px;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+.grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    height: 300px;
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+}
+
+.heading, .new-heading {
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(67, 67, 67, 0.888);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+}
+
+.values {
+    margin-top: 10px;
+    background-color: rgb(35, 35, 44);
+    color: rgba(190, 51, 0, 0.838);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    overflow-y: auto;
+    overflow-x:inherit;
+    flex-grow: 1;
+}
+
+.grid-container hr{
+    border: 1px solid rgba(190, 51, 0, 0.838);
+}
+
+.values::-webkit-scrollbar, .grid-container::-webkit-scrollbar{
+    width: 5px;
+}
+
+.values::-webkit-scrollbar-thumb {
+    background: rgb(34, 33, 33);
+}
+
+.changeValues{
+    background-color: rgb(35, 35, 44);
+    border: 1px solid #201f1f;
+    border-radius: 3px;
+    height:auto;
+    padding: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.newColBtn, .delColBtn{
+    background-color: black;
+    color: rgba(235, 83, 27, 0.838);
+    width: 50px;
+    height: 20px;
+    border-radius: 10px; 
+    padding: 1px;
+    border: 1px solid rgba(116, 32, 2, 0.838);
+    box-shadow:none;
+}
+.newColBtn{ margin-right: 10px;}
+.delColBtn{margin-left: 10px;}
+
+/* Customize the label (the container) */
+.ch {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Hide the browser's default checkbox */
+.ch input[type="checkbox"] {
+    visibility: hidden;
+}
+
+/* Create a custom checkbox container */
+.checkbox-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border: 1px solid red;
+}
+
+/* Active effect */
+.ch input:active~.checkbox-container {
+    background-color: red;
+}
+
+/* Checked effect */
+.ch input:checked~.checkbox-container {
+    background-color: green;
+}
+
+/* Checkmark */
+.checkbox-container::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 0px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Display checkmark when checked */
+.ch input:checked~.checkbox-container::after {
+    display: block;
+}

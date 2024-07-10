@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+body.light-mode {
+    font-family: 'Open Sans', sans-serif;
+    background: lavender;
+    background-size: contain;
+    height: 100%;
+    color: black;
+}
+
+body.dark-mode {
+    font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 105), rgba(0, 0, 255, 0.765), rgba(0, 0, 255, 0.765), rgb(0, 0, 105));
+    color: white;
+}
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #555;
+}
+
+body::-webkit-scrollbar-thumb {
+    background:#0e0e20;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: purple;
+}
+
+nav {
+    position: relative;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50px;
+    background:  #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    opacity: 0.9;
+    font-weight:500;
+}
+
+body.dark-mode nav {
+    background-color: #2d2b2b;
+}
+
+nav .nav-links {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    position: relative;
+}
+
+nav a {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    line-height: 50px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px;
+    padding: 0 10px;
+}
+
+body.dark-mode nav a {
+    color: white;
+}
+
+.mode-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: auto;
+}
+
+nav .nav-links a {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+.main-content {
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    height: calc(100% - 90px);
+    opacity: 0.9;
+}
+
+body.dark-mode .main-content {
+    background-color: #222;
+    border: 1px solid #555;
+}
+
+.flex-box-3 {
+    height: 55px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.configure-button {
+    align-self: flex-start;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: rgb(221, 221, 250);
+    color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 37px;
+    font-weight: bolder;
+}
+.configure-button:hover, .configure-button:focus{
+    background-color: rgb(138, 138, 220);
+    border: none;
+}
+body.dark-mode .configure-button {
+    background-color:  rgb(0, 0, 255);
+    color:white;
+}
+
+.checkbox-container {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+body.dark-mode .checkbox-container {
+    border: 1px solid #777;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-container label {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.simulate {
+    background-color: rgb(221, 221, 250);
+    color: black;
+    border: 1px solid black;
+    width: 100px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bolder;
+    height: 35px;
+}
+
+.graph-button {
+    background-color: rgb(221, 221, 250);
+    color: black;
+    border: 1px solid black;
+    width: 100px;
+    font-weight: bolder;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 35px;
+}
+
+.simulate:hover, .simulate:focus,
+.graph-button:hover, .graph-button:focus{
+    background-color: rgb(138, 138, 220);
+    border: none;
+}
+
+body.dark-mode .simulate,
+body.dark-mode .graph-button {
+    background-color:  rgb(0, 0, 255);
+    color:white;
+}
+
+.big-flex-box {
+    border: 1px solid black;
+    height: 400px;
+    overflow: auto;
+    display: block;
+    padding: 10px;
+}
+
+body.dark-mode .big-flex-box {
+    border: 1px solid #555;
+}
+
+.table-container::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+}
+
+table {
+    display: inline-block; /* Allow the table to expand horizontally */
+    min-width: 100%; /* Ensure the table has a minimum width */
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+body.dark-mode table {
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 12px;
+    text-align: center;
+    min-width: 100px; /* Set fixed minimum width for columns */
+    box-sizing: border-box; /* Ensure the padding and border are included in the width */
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+body.dark-mode th, body.dark-mode td {
+    border: 1px solid whitesmoke;
+    color:white;
+}
+
+th {
+    background-color:rgb(221, 221, 250);
+    color: black;
+    top: 0; /* Make the header sticky */
+    z-index: 2; /* Ensure the header stays above table cells */
+}
+
+body.dark-mode th {
+    background-color: rgb(17 17 118 / 86%);
+    color:white; 
+}
+
+td {
+    background-color: #fff;
+}
+
+body.dark-mode td {
+    background-color: #282727;
+    color: white;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+body.dark-mode input[type="number"] {
+    background-color: #222;
+    color: white;
+    border: 1px solid #777;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 100px auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 650px; 
+}
+
+body.dark-mode .modal-content {
+    background-color: #222;
+    border: 1px solid #555;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body.dark-mode .close:hover,
+body.dark-mode .close:focus {
+    color: white;
+}

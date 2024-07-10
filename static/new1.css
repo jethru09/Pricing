@@ -1,0 +1,148 @@
+@import url('copy.css');
+
+.simulate-btn{
+    background-color: rgb(35, 35, 44);
+    border: 1px solid rgba(190, 51, 0, 0.838);
+    border-radius: 10px;
+    color: rgba(190, 51, 0, 0.838);
+    width: 150px;
+    justify-content: center;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    margin-left: 30px;
+}
+
+.bigBox{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.box3{
+    border: 1px solid rgb(83, 30, 30);
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 40px;
+    flex-grow: 1;
+    height: auto;
+}
+
+.bt{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    color: grey;
+    width: auto;
+    size: 10px;
+    font-weight: 200;
+    padding: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.graph{
+    height: 60px;
+    background-color: white;
+    margin-left:10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.content{
+
+    display: block;
+    justify-content: center;
+    height: 200px; /* Set a fixed height for the content */
+    margin: 10px;
+    border-radius: 10px;
+    overflow-x: auto; /* Allow vertical scrolling */
+}
+
+
+table {
+    display: inline-block; /* Allow the table to expand horizontally */
+    min-width: 100%; /* Ensure the table has a minimum width */
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: rgba(190, 51, 0, 0.838);
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 12px;
+    text-align: center;
+    min-width: 100px; /* Set fixed minimum width for columns */
+    box-sizing: border-box; /* Ensure the padding and border are included in the width */
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+th {
+    background-color:rgb(38, 38, 45);
+    top: 0; /* Make the header sticky */
+    z-index: 2; /* Ensure the header stays above table cells */
+}
+
+td {
+    background-color:  rgb(35, 35, 44);
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #333;
+    color:  rgba(190, 51, 0, 0.838);
+    border: 1px solid black;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+}
+.graphs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: rgb(38, 38, 45);
+}
+
+.graph {
+    width: 48%; /* Adjust width to fit two graphs side by side */
+    height: 100%; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#lineChart, #lineChart2 {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgb(38, 38, 45);
+}
+
+select {
+    background-color: #333;
+    color: grey;
+}
