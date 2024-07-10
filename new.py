@@ -308,7 +308,3 @@ def sales_trend(industry, product):
         response = return_response(jsonify({"error": str(e)}), 400)
         return response
 
-
-# Run the Flask app
-if __name__ == '__main__':
-    app.run(debug=True)
