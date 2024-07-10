@@ -9,15 +9,15 @@
 <body>
     <nav>
         <div class="navbar">
-            <img src="static/NTT.png" class="nav-icon" alt="NTT Icon">
-            <form action="/analyze" method="get">
+            <img src="{{ url_for('static', filename='NTT.png') }} class="nav-icon" alt="NTT Icon">
+            <form action="/" method="get">
                 <input type="text" placeholder="Search">
             </form>
             <div class="icons">     
-                <img src="static/Home.png" class="icon" alt="Home">
-                <img src="static/Settings.png" class="icon" alt="Settings">
-                <img src="static/Notifications.png" class="icon" alt="Notifications">
-                <img src="static/About.png" class="icon" alt="About">
+                <img src="{{ url_for('static', filename='Home.png') }}" class="icon" alt="Home">
+                <img src="{{ url_for('static', filename='Settings.png') }} class="icon" alt="Settings">
+                <img src="{{ url_for('static', filename='Notifications.png') }} class="icon" alt="Notifications">
+                <img src="{{ url_for('static', filename='About.png') }} class="icon" alt="About">
             </div> 
         </div>
     </nav>
