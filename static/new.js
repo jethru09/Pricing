@@ -125,7 +125,7 @@ function populateGrid(industries, factors) {
 document.addEventListener('DOMContentLoaded', () => {
 // Call the function to populate the grid
     const industrySelect = document.getElementById('industry-select');
-
+    populateGrid(industries, factors);
     document.getElementById('industry-select').addEventListener('change', async function() {
         const industry = this.value;
         populateGrid(industry, factors);
