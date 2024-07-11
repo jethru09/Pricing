@@ -2,7 +2,9 @@
 function populateGrid(industries, factors) {
     const gridContainer = document.getElementById('grid-container');
     gridContainer.innerHTML = '';
-
+    if (!Array.isArray(industries)) {
+        industries = [industries];
+    }
     industries.forEach(industry => {
         const gridItem = document.createElement('div');
         gridItem.className = 'grid-item';
@@ -18,10 +20,7 @@ function populateGrid(industries, factors) {
         factors[industry].forEach(factor => {
             const p = document.createElement('p');
             p.innerHTML = `
-            <label class="ch">
-                <input type="checkbox" class="config-checkbox" data-config="${industry}-${factor}">${factor}
-                <span class="checkbox-container"></span>
-            </label>
+            <p>${factor}</p>
             <hr>`;
             valuesDiv.appendChild(p);
         });
@@ -56,16 +55,6 @@ function populateGrid(industries, factors) {
         gridContainer.appendChild(gridItem);
     });
 
-    const newGridItem = document.createElement('div');
-    newGridItem.className = 'grid-item';
-
-    const newHeading = document.createElement('button');
-    newHeading.className = 'new-heading';
-    newHeading.textContent = '+ Industry';
-    newHeading.id = 'new-heading';
-    newGridItem.appendChild(newHeading);
-    gridContainer.appendChild(newGridItem);
-
     function addInputField(industry, container) {
         const inputContainer = document.createElement('p');
         const input = document.createElement('input');
@@ -84,10 +73,7 @@ function populateGrid(industries, factors) {
     function addFactor(industry,value, container) {
         if (value.trim() !== '') {
             container.innerHTML = `
-            <label class="ch">
-                <input type="checkbox" class="config-checkbox" data-config="${industry}-${value}">${value}
-                <span class="checkbox-container"></span>
-            </label>
+            <p>${value}</p>
             <hr>`;
             factors[industry] = factors[industry].concat([value]);
             influencing_factors[industry] = influencing_factors[industry].concat([value]);
@@ -136,30 +122,13 @@ function populateGrid(industries, factors) {
     }    
 }
 
-// Function to get selected factors on button click
-function getSelectedFactors(industries) {
-    const selectedFactors = {};
-    industries.forEach(industry => {
-        selectedFactors[industry] = [];
-    });
-
-    const checkboxes = document.querySelectorAll('.config-checkbox:checked');
-    checkboxes.forEach(checkbox => {
-        const [industry, factor] = checkbox.getAttribute('data-config').split('-');
-        selectedFactors[industry].push(factor);
-    });
-
-    return selectedFactors;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 // Call the function to populate the grid
-    populateGrid(industries, factors);
-
     const industrySelect = document.getElementById('industry-select');
 
     document.getElementById('industry-select').addEventListener('change', async function() {
         const industry = this.value;
+        populateGrid(industry, factors);
         localStorage.setItem('selected-industry', JSON.stringify(industry));
         //console.log(industry);
     });
@@ -170,18 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('analyzer-btn').addEventListener('click', () => {
-        const selectedFactors = getSelectedFactors(industries);
         //console.log(selectedFactors); // You can handle this dictionary as needed
         //console.log( JSON.parse(localStorage.getItem('selected-industry')))
         // Store selectedFactors in localStorage
-        localStorage.setItem('selectedFactors', JSON.stringify(selectedFactors));
         // Redirect to the app.route('/') page
         window.location.href = '/analyze';
     });
 
     // Modal functionality
     const modal = document.getElementById('myModal');
-    const newIndustry = document.getElementById('new-heading');
+    const newIndustry = document.getElementById('add-btn');
     const closeBtns = document.querySelectorAll('.close');
     const newIndustryBtn = document.getElementById('new-industry-btn');
     const newIndustryForm = document.getElementById('new-industry-form');
@@ -314,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     deleteOption.textContent = industryName;
                     deleteIndustrySelect.appendChild(deleteOption);
                     modal.style.display = "none";
-                    const newIndustry = document.getElementById('new-heading');
+                    const newIndustry = document.getElementById('add-btn');
                     newIndustry.addEventListener("click", function() {
                         modal.style.display = "block";
                     });
@@ -364,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             break; // Exit the loop once the option is removed
                         }
                     }
-                    const newIndustry = document.getElementById('new-heading');
+                    const newIndustry = document.getElementById('add-btn');
                     newIndustry.addEventListener("click", function() {
                         modal.style.display = "block";
                         //console.log("zro");
