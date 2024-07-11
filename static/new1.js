@@ -2,7 +2,7 @@ let selectedIndustry = JSON.parse(localStorage.getItem('selected-industry'));
 //console.log(selectedIndustry);
 let selectedColumns = [];
 let products = [];
-const selectedFactors = JSON.parse(localStorage.getItem('selectedFactors'));
+const selectedFactors = {};
 
 // Function to update table headers
 function updateTableHeaders(selectedColumns, productTableHead) {
@@ -176,37 +176,46 @@ function populateGrid(industry, factors) {
     }    
 }
 
-document.getElementById('industry-select').addEventListener('change', async function() {
-    const industry = document.getElementById('industry-select');
-    selectedIndustry = industry.value; // Store the selected industry value
-    // Retrieve selectedFactors from localStorage
-    // Update localStorage with the selected industry
-    localStorage.setItem('selected-industry', JSON.stringify(selectedIndustry));
-    //console.log(industry.value);
-    //console.log(selectedIndustry);
-    //console.log(selectedFactors);
-    selectedColumns = selectedFactors[selectedIndustry]
+function updateSelectedColumns() {
+    selectedColumns = getSelectedFactors(selectedIndustry)[selectedIndustry];
+    const productTableHead = document.getElementById('product-table').querySelector('thead');
+    const productTableBody = document.getElementById('product-table').querySelector('tbody');
     
-    // Clear existing content in content div
+    updateTableHeaders(selectedColumns, productTableHead);
+    updateTableValues(selectedColumns, selectedIndustry, products, productTableBody);
+}
+
+// Adding event listener to checkboxes to update selected columns
+document.addEventListener('change', function(event) {
+    if (event.target.classList.contains('config-checkbox')) {
+        updateSelectedColumns();
+    }
+});
+
+document.getElementById('industry-select').addEventListener('change', async function() {
+    const industrySelect = document.getElementById('industry-select');
+    selectedIndustry = industrySelect.value;
+    localStorage.setItem('selected-industry', JSON.stringify(selectedIndustry));
+
+    selectedFactors[selectedIndustry] = selectedColumns;
+
     const mainContentDiv = document.querySelector('.content');
     const productTableHead = document.getElementById('product-table').querySelector('thead');
     const productTableBody = document.getElementById('product-table').querySelector('tbody');
-    productTableHead.innerHTML = '';  // Clear table headings
-    productTableBody.innerHTML = '';  // Clear table values
-    const industry_factors = factors[selectedIndustry]
+    productTableHead.innerHTML = '';
+    productTableBody.innerHTML = '';
+    populateGrid(selectedIndustry, factors);
+    const industry_factors = factors[selectedIndustry];
     if (selectedIndustry && industry_factors) {
         const productsResponse = await fetch(`/data/${selectedIndustry}`);
         products = await productsResponse.json();
 
-        // Check for errors in the response
         if (products.error) {
             alert(products.error);
             return;
         }
-        updateTableHeaders(selectedColumns, productTableHead);
-        updateTableValues(selectedColumns, selectedIndustry, products, productTableBody);
+        updateSelectedColumns();
     }
-    populateGrid(selectedIndustry, factors);
     showGraph();
 });
 
@@ -308,11 +317,9 @@ setInterval(async () => {
 }, 60000);
 */
 // Function to get selected factors on button click
-function getSelectedFactors(industries) {
+function getSelectedFactors(industry) {
     const selectedFactors = {};
-    industries.forEach(industry => {
-        selectedFactors[industry] = [];
-    });
+    selectedFactors[industry] = [];
 
     const checkboxes = document.querySelectorAll('.config-checkbox:checked');
     checkboxes.forEach(checkbox => {
@@ -322,6 +329,8 @@ function getSelectedFactors(industries) {
 
     return selectedFactors;
 }
+
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("simulate-btn").addEventListener('click', async function() {
         calculateDynamicPrices(selectedIndustry);
