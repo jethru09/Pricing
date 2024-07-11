@@ -166,7 +166,7 @@ nav {
 .grid-container {
     background-color: rgb(35, 35, 44);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
     grid-gap: 10px;
     padding: 10px;
     padding-right: 30px;
