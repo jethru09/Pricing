@@ -291,7 +291,7 @@ async function getCoefficients(industry, product) {
     }
 }
 // Periodically check for updates and calculate dynamic prices
-/*
+
 setInterval(async () => {
     let selectedFactors = JSON.parse(localStorage.getItem('selectedFactors'));
     if(getSelectedFactors(industries) !== ''){
@@ -314,8 +314,8 @@ setInterval(async () => {
         const product = checkbox.getAttribute('data-product').split('-')[1];
         getCoefficients(selectedIndustry, product);
     });
-}, 60000);
-*/
+}, 300000);
+
 // Function to get selected factors on button click
 function getSelectedFactors(industry) {
     const selectedFactors = {};
