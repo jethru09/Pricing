@@ -13,6 +13,7 @@ function updateTableHeaders(selectedColumns, productTableHead) {
             <th>Select</th>
             <th>Product</th>
             ${headersHTML}
+            <th>Margin</th>
             <th>Dynamic Price</th>
         </tr>
     `;
@@ -27,6 +28,11 @@ async function updateTableValues(selectedColumns, industry, products, productTab
         const defaultFactors = await defaultFactorsResponse.json();
         const industry_factors = factors[selectedIndustry];
         const tr = document.createElement('tr');
+        const factor1 = industry_factors.indexOf('COG');
+        const factor2 = industry_factors.indexOf('Sales Price');
+        const factorVal1 = defaultFactors[factor1];
+        const factorVal2 = defaultFactors[factor2];
+        const Margin = ((factorVal2 - factorVal1)/factorVal2)*100;
         tr.innerHTML = `
             <td><label class="ch">
                     <input type="checkbox" class="product-checkbox" data-product="${industry}-${product}">
@@ -42,6 +48,7 @@ async function updateTableValues(selectedColumns, industry, products, productTab
                 //console.log(factorValue);
                 return `<td><input type="number" id="${industry}-${product}-${column}" value="${factorValue}"></td>`;
             }).join('')}
+            <td><input type="number" id="${industry}-${product}-Margin" placeholder="${Margin.toFixed(2)}"></td>
             <td><input type="number" id="${industry}-${product}-DynamicPrice" placeholder="Enter a value"></td>
         `;
         productTableBody.appendChild(tr);
@@ -252,6 +259,13 @@ async function calculateDynamicPrices(industry) {
         }, {});
 
         let dynamicPrice = 0;
+        let SP = factorValues['Sales Price'];
+        //console.log(SP);
+        let COG = factorValues['COG'];
+        let prevMargin = ((SP - COG)/SP)*100;
+        let margin =  getInputValue(`${product}-Margin`,prevMargin);
+        let change = margin - prevMargin;
+        //console.log(change);
         const weights = await getCoefficients(industry, product.split('-')[1]);
         // Add the constant term to dynamic price
         //console.log(weights.const);
@@ -267,14 +281,17 @@ async function calculateDynamicPrices(industry) {
                 //console.log(factor)
             }
         }
-
+        dynamicPrice = 1/( (1/dynamicPrice) - (change/(100*COG)) );
         // Update the Dynamic Price input field for the product
         const dynamicPriceElement = document.getElementById(`${product}-DynamicPrice`);
+        const marginElement = document.getElementById(`${product}-Margin`);
+        const id2 = `${product}-Margin`;
         const id1 = `${product}-DynamicPrice`;
         const Exists = !!document.getElementById(id1);
         //console.log(`Checking ID: ${id1}, Element exists: ${Exists}`); // Log the ID and its existence
 
-        if (dynamicPriceElement) {
+        if (dynamicPriceElement && marginElement) {
+            marginElement.value = margin.toFixed(2);
             dynamicPriceElement.value = dynamicPrice.toFixed(2);
         }
     }
