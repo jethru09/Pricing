@@ -1,10 +1,10 @@
 @import url('copy.css');
 
 .simulate-btn{
-    background-color: rgb(35, 35, 44);
-    border: 1px solid rgba(190, 51, 0, 0.838);
+    background-color: rgba(255, 198, 10, 255);
+    border: 1px solid black;
     border-radius: 10px;
-    color: rgba(190, 51, 0, 0.838);
+    color: black;
     width: 150px;
     justify-content: center;
     height: 30px;
@@ -12,11 +12,18 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    font-weight: 550;
+}
+
+.simulate-btn:hover, .simulate-btn:focus{
+    background-color: black;
+    color: whitesmoke;
 }
 
 .grid-container {
     grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     margin-left: 30px;
+    border: none;
 }
 
 .bigBox{
@@ -38,7 +45,7 @@
     border-radius: 5px;
     margin: 10px;
     text-align: center;
-    color: grey;
+    color: white;
     width: auto;
     size: 10px;
     font-weight: 200;
@@ -80,6 +87,7 @@ table {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     color: rgba(190, 51, 0, 0.838);
+    padding-bottom: 10px;
 }
 
 th, td {
@@ -90,16 +98,19 @@ th, td {
     box-sizing: border-box; /* Ensure the padding and border are included in the width */
     white-space: nowrap;
     text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    color: black;
 }
 
 th {
-    background-color:rgb(38, 38, 45);
+    background-color:rgba(111, 121, 186, 0.888);
+    color: white;
     top: 0; /* Make the header sticky */
     z-index: 2; /* Ensure the header stays above table cells */
 }
 
 td {
-    background-color:  rgb(35, 35, 44);
+    background-color:  whitesmoke;
+    color: black;
 }
 
 input[type="number"] {
@@ -108,8 +119,8 @@ input[type="number"] {
     font-size: 1em;
     box-sizing: border-box;
     border-radius: 5px;
-    background-color: #333;
-    color:  rgba(190, 51, 0, 0.838);
+    background-color: whitesmoke;
+    color:  black;
     border: 1px solid black;
 }
 
@@ -124,7 +135,7 @@ body::-webkit-scrollbar {
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 10px;
-    background-color: rgb(38, 38, 45);
+    background-color: rgb(0,0,41);
 }
 
 .graph {
@@ -139,10 +150,12 @@ body::-webkit-scrollbar {
 #lineChart, #lineChart2 {
     width: 100% !important;
     height: 100% !important;
-    background-color: rgb(38, 38, 45);
+    background-color: white;
+    border-radius: 10px;
 }
 
 select {
-    background-color: #333;
-    color: grey;
+    background-color: rgb(0,0,41);
+    color: white;
+    font-weight: 400;
 }
