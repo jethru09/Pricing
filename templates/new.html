@@ -21,15 +21,15 @@
             </div> 
         </div>
     </nav>
-    <hr style="border: 1px solid orangered">
+    <hr style="border: 1px solid grey">
     <div class="main">
         <div class="box1">
-            <h2 class="h4">Pricing Influencer</h4>
+            <h2 class="h2">Pricing Influencer</h2>
             <div class="type">
-                <img src="static/Style1.png" class="icon" alt="Showcase">
+                <img src="static/Style3.png" class="icon" alt="Showcase">
                 <button id="configurator-btn" class="configurator-btn">Configurator</button>
                 <button id="analyzer-btn" class="analyzer-btn">Analyzer</button>
-                <img src="static/Style2.png" class="icon" alt="Showcase">
+                <img src="static/Style4.png" class="icon" alt="Showcase">
             </div>
         </div>
         <div class="box2">
@@ -79,8 +79,9 @@
             </div>
         </div>
     </div>
+    <hr style="border: 1px solid grey">
     <footer class="foot">
-        &copy; 2023 NTT DATA, Inc.
+        &copy; 2024 NTT DATA, Inc.
     </footer>
     <script>
         const industries = JSON.parse('{{ industries | tojson | safe }}');
@@ -90,4 +91,3 @@
     <script src="{{ url_for('static', filename='new.js') }}"></script>
 </body>
 </html>
-
