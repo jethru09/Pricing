@@ -36,7 +36,7 @@ async function updateTableValues(selectedColumns, industry, products, productTab
         tr.innerHTML = `
             <td><label class="ch">
                     <input type="checkbox" class="product-checkbox" data-product="${industry}-${product}">
-                    <span class="checkbox-container"></span>
+                    <span class="checkbox-container1"></span>
                 </label>
             </td>
             <td>${product}</td>
