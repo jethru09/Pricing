@@ -9,15 +9,14 @@
     width: 100%;
     height: 100%;
     overflow: auto; 
-    background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgb(0,0,41);
     margin: 100px auto; 
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid white;
     width: 650px; 
 }
 
@@ -30,7 +29,7 @@
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }
@@ -105,11 +104,11 @@ button.delete-btn:hover, button.delete-btn:focus{
 #new-industry-form, #delete-industry-form {
     text-align: left;
     margin-top: 20px;
-    color: black;
+    color: white;
 }
 
 .grid-container {
-    background-color: rgb(35, 35, 44);
+    background-color:rgb(0,0,41);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
     grid-gap: 10px;
@@ -118,7 +117,8 @@ button.delete-btn:hover, button.delete-btn:focus{
     justify-content: center;
 }
 .grid-item{
-    width: 300px
+    width: 300px;
+    border: 1px solid white;
 }
 .values {
     text-align: center;
