@@ -1,6 +1,6 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    background: rgb(35, 35, 44);
+    font-family:'Droid Serif';
+    background: rgb(0, 0, 41);
     background-size: contain;
     height: 100%;
     color: white;
@@ -14,7 +14,6 @@ nav {
     padding-right: 20px;
     height: 50px;
     opacity: 0.9;
-    border-radius: 8px;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
     display: flex;
     flex-direction: column;
@@ -79,8 +78,10 @@ nav {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: rgb(35, 35, 44);
+    background-color: rgb(0, 0, 41);
     border-radius: 8px;
+    border: 1px solid black;
+    margin-bottom: 2px;
 }
 
 .box1 h2 {
@@ -106,17 +107,18 @@ nav {
     margin: 0 10px;
     padding: 10px 20px;
     width: 150px;
-    background-color: rgb(14, 14, 16);
-    color: #969696;
+    background-color: rgba(255, 198, 10, 255);
+    color: #020202;
     border: 1px solid rgb(37, 37, 137);
     border-radius: 20px;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .configurator-btn:hover, .configurator-btn:focus,
 .analyzer-btn:hover, .analyzer-btn:focus {
-    background-color: rgb(35, 35, 44);
-    color: white;
+    background-color: white;
+    color: black;
     border: 1px solid #ccc;
 }
 
@@ -126,8 +128,7 @@ nav {
     gap: 10px; /* Add gap between elements */
     padding: 0;
     padding-left: 30px;
-    background-color: rgb(35, 35, 44);
-    border-radius: 8px;
+    background-color: rgba(46, 64, 77, 255);
     height: 50px;
 }
 
@@ -135,27 +136,29 @@ nav {
     margin: 0;
     padding: 2px;
     padding-left: 10px;
-    background-color: rgb(69, 69, 84);
+    background-color:rgba(46, 64, 77, 255);
     border-radius: 4px;
     color: white; /* Change text color to white */
     width: 220px;
 }
 
 .box2 select {
-    background-color: rgb(82, 82, 96);
+    background-color: rgba(46, 64, 77, 255);
     color: white;
+    font-weight: 600;
     width: 150px;
     border: none;
     border-radius: 4px;
     padding: 5px;
+    border: 1px solid black;
 }
 
 .box2 .add-btn {
-    background-color: white;
+    background-color: rgba(255, 198, 10, 255);
     color: rgb(35, 35, 44);
     height: 30px;
     border-radius: 15px;
-    width: 30px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,8 +166,13 @@ nav {
     /* Remove margin-right: auto */
 }
 
+.box2 .add-btn:hover{
+    background-color: white;
+    color: black;
+}
+
 .grid-container {
-    background-color: rgb(35, 35, 44);
+    background-color:rgb(0,0,41);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
     grid-gap: 10px;
@@ -173,7 +181,7 @@ nav {
 }
 
 .grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid white;
     border-radius: 10px;
     padding: 20px;
     font-size: 20px;
@@ -189,10 +197,10 @@ nav {
     margin-right: auto;
     height: 50px;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid whitesmoke;
     border-radius: 10px;
     padding: 10px;
-    background-color: rgba(67, 67, 67, 0.888);
+    background-color: rgba(0,0,41);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,18 +210,19 @@ nav {
 
 .values {
     margin-top: 10px;
-    background-color: rgb(35, 35, 44);
-    color: rgba(190, 51, 0, 0.838);
+    background-color: rgba(0,0, 41);
+    color: whitesmoke;
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: left;
     overflow-y: auto;
     overflow-x:inherit;
     flex-grow: 1;
+    padding-left: 10px;
 }
 
 .grid-container hr{
-    border: 1px solid rgba(190, 51, 0, 0.838);
+    border: 1px solid grey;
 }
 
 .values::-webkit-scrollbar, .grid-container::-webkit-scrollbar{
@@ -221,12 +230,13 @@ nav {
 }
 
 .values::-webkit-scrollbar-thumb {
-    background: rgb(34, 33, 33);
+    background: grey;
 }
 
 .changeValues{
-    background-color: rgb(35, 35, 44);
-    border: 1px solid #201f1f;
+    margin-top: 2px;
+    background-color: rgb(0, 0 ,41);
+    border: 1px solid #183b61;
     border-radius: 3px;
     height:auto;
     padding: 2px;
@@ -235,15 +245,23 @@ nav {
 }
 
 .newColBtn, .delColBtn{
-    background-color: black;
-    color: rgba(235, 83, 27, 0.838);
+    background-color: rgba(111, 121, 186, 0.888);
+    color: black;
     width: 50px;
     height: 20px;
     border-radius: 10px; 
     padding: 1px;
-    border: 1px solid rgba(116, 32, 2, 0.838);
+    border: none;
     box-shadow:none;
+    font-weight: 600;
 }
+
+.newColBtn:hover, .delColBtn:hover, .newColBtn:focus, .delColBtn:focus{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
 .newColBtn{ margin-right: 10px;}
 .delColBtn{margin-left: 10px;}
 
@@ -262,28 +280,36 @@ nav {
 }
 
 /* Create a custom checkbox container */
-.checkbox-container {
+.checkbox-container, .checkbox-container1 {
     position: absolute;
     top: 0;
     left: 0;
     height: 15px;
     width: 15px;
     background-color: transparent;
-    border: 1px solid red;
+    border: 1px solid white;
+}
+
+.checkbox-container1{
+    border: 1px solid black;
 }
 
 /* Active effect */
 .ch input:active~.checkbox-container {
-    background-color: red;
+    background-color: white;
 }
 
 /* Checked effect */
 .ch input:checked~.checkbox-container {
-    background-color: green;
+    background-color: rgb(0, 0 ,41);
+}
+
+.ch input:checked~.checkbox-container1 {
+    background-color: rgba(111, 121, 186, 0.888);
 }
 
 /* Checkmark */
-.checkbox-container::after {
+.checkbox-container::after, .checkbox-container1::after {
     content: "";
     position: absolute;
     display: none;
@@ -298,5 +324,9 @@ nav {
 
 /* Display checkmark when checked */
 .ch input:checked~.checkbox-container::after {
+    display: block;
+}
+
+.ch input:checked~.checkbox-container1::after {
     display: block;
 }
